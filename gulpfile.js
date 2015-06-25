@@ -1,7 +1,6 @@
 var browserify = require('browserify');
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
-var browserSync = require('browser-sync');
 var rename = require('gulp-rename');
 var babelify = require('babelify');
 
@@ -10,7 +9,8 @@ var opts = {
   mainJsOutput: 'bundle.js',
   buildFolder: './',
   watchedFiles: [
-    './*.js'
+    './index.js',
+    './node_modules/react-lazy-content/**/*.js'
   ]
 };
 
@@ -24,14 +24,6 @@ gulp.task('build', function() {
     .pipe(gulp.dest(opts.buildFolder));
 });
 
-gulp.task('browser-sync', function() {
-  browserSync({
-    server: {
-      baseDir: opts.buildFolder
-    }
-  });
-});
-
-gulp.task('default', ['browser-sync', 'build'], function() {
-  gulp.watch(opts.watchedFiles, ['build', browserSync.reload]);
+gulp.task('default', ['build'], function() {
+  gulp.watch(opts.watchedFiles, ['build']);
 });
