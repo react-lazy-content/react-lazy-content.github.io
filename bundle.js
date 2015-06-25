@@ -28,28 +28,9 @@ var ComponentWithLazy = _react2['default'].createClass({
 
   render: function render() {
     return _react2['default'].createElement(
-      'span',
-      null,
-      _react2['default'].createElement(
-        'h1',
-        null,
-        'React LazyContent Demo'
-      ),
-      _react2['default'].createElement('hr', null),
-      _react2['default'].createElement(
-        'div',
-        null,
-        'Last commit from https://github.com/facebook/react :'
-      ),
-      _react2['default'].createElement(
-        'pre',
-        null,
-        _react2['default'].createElement(
-          'code',
-          { 'data-lazy-loader': 'someService' },
-          this.state.content
-        )
-      )
+      'code',
+      { 'data-lazy-loader': 'someService' },
+      this.state.content
     );
   },
 

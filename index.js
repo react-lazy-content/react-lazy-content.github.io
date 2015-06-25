@@ -13,16 +13,9 @@ var ComponentWithLazy = React.createClass({
 
   render: function render() {
     return (
-      <span>
-        <h1>React LazyContent Demo</h1>
-        <hr/>
-        <div>Last commit from https://github.com/facebook/react :</div>
-        <pre>
-          <code data-lazy-loader='someService'>
-            {this.state.content}
-          </code>
-        </pre>
-      </span>
+      <code data-lazy-loader='someService'>
+        {this.state.content}
+      </code>
     );
   },
 
