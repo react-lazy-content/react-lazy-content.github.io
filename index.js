@@ -11,7 +11,7 @@ var ComponentWithLazy = React.createClass({
     return {commits: null};
   },
 
-  render: function render() {
+  render: function() {
     var commits = this.state.commits;
     var commitMessage = commits ? commits[0].commit.message : 'loading...';
 
@@ -26,7 +26,7 @@ var ComponentWithLazy = React.createClass({
     this.mountLazyLoaders();
   },
 
-  commitsAPI: function commitsAPI(success) {
+  commitsAPI: function(success) {
     jQuery.get(endpoint, success);
   }
 });
